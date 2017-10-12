@@ -58,20 +58,20 @@ void loop()
   output.SetLight(lightStatus);
   output.SetPump(pumpStatus);
   output.SetErrLed(errLedStatus);
-	if (error == 0)
-	{
-	  Measurement measurement(firstLoop);
-	  measurement.MeasurementTemp(averageTemp, errCnt_ds18b20);
-	  measurement.MeasurementTank(avarageTank, errCnt_tank);
+  if (error == 0)
+    {
+      Measurement measurement(firstLoop);
+      measurement.MeasurementTemp(averageTemp, errCnt_ds18b20);
+      measurement.MeasurementTank(avarageTank, errCnt_tank);
       measurement.MeasurementLight(avarageLight, errCnt_light);
       measurement.MeasurementHum(avarageHum, errCnt_hum);
-	  SVR();
-	}else{
+      SVR();
+    }else{
     //lightStatus = false;
     //pumpStatus = false;
-	  errLedStatus =! errLedStatus;
+      errLedStatus =! errLedStatus;
       delay(100);
-	}
+    }
   firstLoop = false;
 #ifdef DEBUG
   unsigned long mainTime = millis() - start; 
