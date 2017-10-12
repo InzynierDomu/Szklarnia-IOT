@@ -27,10 +27,10 @@ void Measurement::MeasurementTank(int &avarageValue, int &counterErr)
 
   if (_firstLoop)
   {
-	avarageValue = procentDistance;
+    avarageValue = procentDistance;
   }else{
-	avarageValue = (5 * avarageValue + procentDistance) / 6;
-	if (test.DistanceToHighDifference(procentDistance, _avarageValue) == false) counterErr++;
+    avarageValue = (5 * avarageValue + procentDistance) / 6;
+    if (test.DistanceToHighDifference(procentDistance, _avarageValue) == false) counterErr++;
   }
 }
 
@@ -56,8 +56,8 @@ void Measurement::MeasurementTemp(float &avarageValue, int &counterErr)
   if (_firstLoop){
     avarageValue = nowTemp;
   }else{
-	avarageValue = (10 * avarageValue + nowTemp) / 11;
-	if (test.TempToHighDifference(nowTemp, _avarageValue) == false) counterErr++;
+    avarageValue = (10 * avarageValue + nowTemp) / 11;
+    if (test.TempToHighDifference(nowTemp, _avarageValue) == false) counterErr++;
   }
 }
 
