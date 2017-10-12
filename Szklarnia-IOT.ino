@@ -31,10 +31,10 @@ Output output;
 
 void setup()
 {
-	firstLoop = true;
-	error = 0;
-	errCnt_ds18b20 = 0;
-	errCnt_tank = 0;
+  firstLoop = true;
+  error = 0;
+  errCnt_ds18b20 = 0;
+  errCnt_tank = 0;
   errCnt_light = 0;
   errCnt_hum = 0;
   lightStatus = false;
@@ -45,8 +45,8 @@ void setup()
   pinMode(BTN_LIGHT_PIN, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(BTN_LIGHT_PIN ), LightInter, FALLING);
   
-	while(!Serial);
-	Serial.begin(9600);
+  while(!Serial);
+  Serial.begin(9600);
 }
 
 void loop()
@@ -60,32 +60,32 @@ void loop()
   output.SetErrLed(errLedStatus);
 	if (error == 0)
 	{
-		Measurement measurement(firstLoop);
-		measurement.MeasurementTemp(averageTemp, errCnt_ds18b20);
-		measurement.MeasurementTank(avarageTank, errCnt_tank);
-    measurement.MeasurementLight(avarageLight, errCnt_light);
-    measurement.MeasurementHum(avarageHum, errCnt_hum);
-		SVR();
+	  Measurement measurement(firstLoop);
+	  measurement.MeasurementTemp(averageTemp, errCnt_ds18b20);
+	  measurement.MeasurementTank(avarageTank, errCnt_tank);
+      measurement.MeasurementLight(avarageLight, errCnt_light);
+      measurement.MeasurementHum(avarageHum, errCnt_hum);
+	  SVR();
 	}else{
     //lightStatus = false;
     //pumpStatus = false;
-		errLedStatus =! errLedStatus;
-    delay(100);
+	  errLedStatus =! errLedStatus;
+      delay(100);
 	}
-	firstLoop = false;
+  firstLoop = false;
 #ifdef DEBUG
   unsigned long mainTime = millis() - start; 
   Serial.print("Main time(ms): ");
   Serial.println(mainTime);
-	PrintMeasurements();
+  PrintMeasurements();
 #endif  
-	delay(2);
+  delay(2);
 }
 
 void SVR()
 {
-	if (errCnt_ds18b20 > maxErrCnt) error = 2;
-	if (errCnt_tank > maxErrCnt) error = 3;
+  if (errCnt_ds18b20 > maxErrCnt) error = 2;
+  if (errCnt_tank > maxErrCnt) error = 3;
   if (errCnt_light > maxErrCnt) error = 4;
   if (errCnt_hum > maxErrCnt) error = 5;
 }
@@ -97,21 +97,21 @@ void LightInter()
 
 void PrintMeasurements()
 {
-	Serial.print("Temp: ");
-	Serial.print(averageTemp);
-	Serial.print(" Tank: ");
-	Serial.print(avarageTank);
+  Serial.print("Temp: ");
+  Serial.print(averageTemp);
+  Serial.print(" Tank: ");
+  Serial.print(avarageTank);
   Serial.print(" Light: ");
   Serial.print(avarageLight);
   Serial.print(" Humidity: ");
   Serial.print(avarageHum);
-	Serial.print(" error code: ");
-	Serial.print(error);
+  Serial.print(" error code: ");
+  Serial.print(error);
   Serial.print(" light relay status: ");
   Serial.print(lightStatus);
   Serial.print(" pump relay status: ");
   Serial.print(pumpStatus);
-	Serial.println();
+  Serial.println();
 }
 
 

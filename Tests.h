@@ -9,16 +9,16 @@
 
 class Tests
 {
-	public:
+  public:
     bool DistanceMaxMin(int distance);
     bool DistanceToHighDifference(int distance, int &avarageValue);
-		bool TempToHighDifference(float temp, float &avarageValue);
+    bool TempToHighDifference(float temp, float &avarageValue);
     bool LightToHighDifference(int light, int &avarageValue);
     bool HumToHighDifference(int humidity, int &avarageValue);
-	private:
+  private:
     const int maxDifferenceDistance = 20;
     const int maxDifferenceHum = 5;
-		const int maxDifferenceTemp = 10;
+	const int maxDifferenceTemp = 10;
     const int maxDifferenceLight = 10;
 };
 

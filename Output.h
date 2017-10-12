@@ -9,12 +9,12 @@
 
 class Output
 {
-	public:
+  public:
     Output();
     void SetLight(bool state);
     void SetPump(bool state);
     void SetErrLed(bool state);
-	private:
+  private:
     void SetPinLvl(int pin, bool state);
 };
 
