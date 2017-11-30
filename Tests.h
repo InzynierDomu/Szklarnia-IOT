@@ -20,8 +20,6 @@ class Tests
     const int maxDifferenceHum = 5;
 	const int maxDifferenceTemp = 10;
     const int maxDifferenceLight = 10;
-    const int minDistancePercent = 0;
-    const int maxDistancePercent =100;
 };
 
 #endif

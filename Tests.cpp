@@ -18,7 +18,7 @@ bool Tests::TempToHighDifference(float temp, float &avarageValue)
 bool Tests::DistanceMaxMin(int distance)
 {
   bool correct = true;
-  if (distance > maxDistancePercent && distance < minDistancePercent)correct = false;
+  if (distance > 100 && distance < 0)correct = false;
   return correct;
 }
 
