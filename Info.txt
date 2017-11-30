@@ -1,0 +1,34 @@
+GreenHouse IOT
+Create by Szymon Markiewicz
+http://www.inzynierdomu.pl/
+
+//---Arduino---//
+
+Errors:
+0 = no error
+1 =
+2 = thermometer sensor error	
+3 = tank sensor error
+4 = light sensor error
+5 = humidity sensor error
+
+Commands:
+0 = nothing
+1 = reset
+2 = send measurements and status
+3 = change light status
+4 = turn on pump for time
+5 = clear error
+
+Msg to ESP
+lenght msg(without CRC), Temperature*100, water in tank, light, humidity, error, light status, pump status, CRC8
+
+//---ESP---//
+
+ssid = ***
+password = ***
+mqtt_server = ***
+subscribe topic = /greenHouse/recive
+publish topic = /greenHouse/cmd
+
+//---Broker---//

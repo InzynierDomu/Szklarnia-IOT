@@ -4,7 +4,7 @@
 #include <DS18B20.h>
 #include "Pins.h"
 
-#define DEBUG
+//#define DEBUG
 
 Measurement::Measurement(bool &firstLoop)
 {

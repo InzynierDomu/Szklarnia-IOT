@@ -12,7 +12,7 @@ class Output
   public:
     Output();
     void SetLight(bool state);
-    void SetPump(bool state);
+    void SetPump(bool &state, int &timer);
     void SetErrLed(bool state);
   private:
     void SetPinLvl(int pin, bool state);
