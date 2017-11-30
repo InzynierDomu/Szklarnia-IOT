@@ -9,9 +9,11 @@
 #include "ESPCom.h"
 #include "Pins.h"
 
-#define DEBUG
+//#define DEBUG
 
 const int maxErrCnt = 5;
+const int pumpOnTime = 10;
+const int tempMultiplier = 100;
 
 bool firstLoop;
 float averageTemp;
@@ -23,15 +25,18 @@ int errCnt_ds18b20;
 int errCnt_tank;
 int errCnt_light;
 int errCnt_hum;
-volatile bool lightStatus;
+bool lightStatus;
 bool pumpStatus;
+int pumpTimer;
 bool errLedStatus;
+char inChar;
 
 Output output;
 
 void setup()
 {
   firstLoop = true;
+  inChar = '0';
   error = 0;
   errCnt_ds18b20 = 0;
   errCnt_tank = 0;
@@ -56,7 +61,7 @@ void loop()
   start = millis(); 
 #endif
   output.SetLight(lightStatus);
-  output.SetPump(pumpStatus);
+  output.SetPump(pumpStatus, pumpTimer);
   output.SetErrLed(errLedStatus);
   if (error == 0)
     {
@@ -72,11 +77,17 @@ void loop()
       errLedStatus =! errLedStatus;
       delay(100);
     }
+  if (inChar != '0'){
+    Reaction(inChar);
+    inChar = '0';
+  }
   firstLoop = false;
 #ifdef DEBUG
   unsigned long mainTime = millis() - start; 
+  Serial.print("inChar: ");
+  Serial.println(inChar);
   Serial.print("Main time(ms): ");
-  Serial.println(mainTime);
+  Serial.println(mainTime);  
   PrintMeasurements();
 #endif  
   delay(2);
@@ -93,6 +104,54 @@ void SVR()
 void LightInter()
 {
   lightStatus = !lightStatus;
+  delay(2);
+}
+
+void serialEvent() {
+  char rec;
+  char serialBuf[1]; 
+  
+  rec = Serial.readBytes(serialBuf, 1);
+  Serial.println(serialBuf[0]);
+
+  inChar = serialBuf[0];
+}
+
+void Reaction(char data)
+{
+  ESPCom espcom;
+  espcom.SendResponsMsg(inChar);
+  switch (data){
+    case '1':  //reset
+    {
+      asm volatile ("  jmp 0");
+    }
+    break;
+    case '2':  //send measurements
+    {
+      int convAvarageTemp = int(averageTemp * tempMultiplier);
+      int mesaurements[7] = {convAvarageTemp, avarageTank, avarageLight, avarageHum, error, lightStatus, pumpStatus};
+      espcom.SendMesureMsg(mesaurements,sizeof(mesaurements)/sizeof(int)); 
+    }
+    break;
+    case '3':  //change light status
+    {
+      lightStatus = !lightStatus;
+    }
+    break;
+    case '4':  //change pump status
+    {
+      pumpStatus = true;
+      pumpTimer = pumpOnTime;
+    }
+    case '5':  //clear error
+    {
+      error = 0;
+    }
+    break;
+    default:
+    break;
+  }
 }
 
 void PrintMeasurements()

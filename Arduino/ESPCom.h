@@ -11,10 +11,11 @@
 
 class ESPCom
 {
-	public:
-
-	private:
-
+  public:
+    void SendResponsMsg(char data);
+    void SendMesureMsg(int* data, int len);
+  private:
+    int CalcIntCRC8(int *data, int len);
 };
 
 #endif
