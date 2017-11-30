@@ -18,7 +18,7 @@ class Tests
   private:
     const int maxDifferenceDistance = 20;
     const int maxDifferenceHum = 5;
-	const int maxDifferenceTemp = 10;
+    const int maxDifferenceTemp = 10;
     const int maxDifferenceLight = 10;
 };
 
