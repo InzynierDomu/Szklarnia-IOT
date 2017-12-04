@@ -1,0 +1,78 @@
+\hypertarget{_e_s_p_8ino}{}\section{C\+:/\+Projects/\+Szklarnia-\/\+I\+O\+T/\+E\+S\+P/\+E\+SP.ino File Reference}
+\label{_e_s_p_8ino}\index{C\+:/\+Projects/\+Szklarnia-\/\+I\+O\+T/\+E\+S\+P/\+E\+S\+P.\+ino@{C\+:/\+Projects/\+Szklarnia-\/\+I\+O\+T/\+E\+S\+P/\+E\+S\+P.\+ino}}
+
+
+Green\+House I\+OT -\/ E\+SP.  
+
+
+{\ttfamily \#include $<$E\+S\+P8266\+Wi\+Fi.\+h$>$}\newline
+{\ttfamily \#include $<$Pub\+Sub\+Client.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Config.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_e_s_p_8ino_aee63e84c606cfaefce454689113c636c}\label{_e_s_p_8ino_aee63e84c606cfaefce454689113c636c}} 
+Pub\+Sub\+Client \hyperlink{_e_s_p_8ino_aee63e84c606cfaefce454689113c636c}{client} (\hyperlink{_e_s_p_8ino_abd77e757e4b3bb6f1e4b42b21ea9e040}{esp\+Client})
+\begin{DoxyCompactList}\small\item\em connect M\+Q\+TT on configuration W\+I\+FI \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_e_s_p_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{_e_s_p_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
+void \hyperlink{_e_s_p_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\begin{DoxyCompactList}\small\item\em preparation to work, startup \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_e_s_p_8ino_ae5b88d967e3185d98053cf055c8b4f1f}\label{_e_s_p_8ino_ae5b88d967e3185d98053cf055c8b4f1f}} 
+void \hyperlink{_e_s_p_8ino_ae5b88d967e3185d98053cf055c8b4f1f}{setup\+\_\+wifi} ()
+\begin{DoxyCompactList}\small\item\em preparation W\+I\+FI communication \end{DoxyCompactList}\item 
+void \hyperlink{_e_s_p_8ino_ac3a129f66dc859e2b7279565f4e1de78}{callback} (char $\ast$topic, byte $\ast$payload, unsigned int length)
+\begin{DoxyCompactList}\small\item\em callback for recived message by M\+Q\+TT \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_e_s_p_8ino_a4bcd6ce7d04c38f8c4ff908d1fc50f86}\label{_e_s_p_8ino_a4bcd6ce7d04c38f8c4ff908d1fc50f86}} 
+void \hyperlink{_e_s_p_8ino_a4bcd6ce7d04c38f8c4ff908d1fc50f86}{reconnect} ()
+\begin{DoxyCompactList}\small\item\em connect to M\+Q\+TT \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_e_s_p_8ino_afe461d27b9c48d5921c00d521181f12f}\label{_e_s_p_8ino_afe461d27b9c48d5921c00d521181f12f}} 
+void \hyperlink{_e_s_p_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\begin{DoxyCompactList}\small\item\em main loop \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_e_s_p_8ino_abd77e757e4b3bb6f1e4b42b21ea9e040}\label{_e_s_p_8ino_abd77e757e4b3bb6f1e4b42b21ea9e040}} 
+Wi\+Fi\+Client \hyperlink{_e_s_p_8ino_abd77e757e4b3bb6f1e4b42b21ea9e040}{esp\+Client}
+\begin{DoxyCompactList}\small\item\em E\+SP client for W\+I\+FI. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_e_s_p_8ino_a6792fb5519275f7b220cdc759eb45a65}\label{_e_s_p_8ino_a6792fb5519275f7b220cdc759eb45a65}} 
+char \hyperlink{_e_s_p_8ino_a6792fb5519275f7b220cdc759eb45a65}{buf} \mbox{[}50\mbox{]}
+\begin{DoxyCompactList}\small\item\em buffer for recived serial message \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_e_s_p_8ino_a59a311e0716b6bc0ed2ac22733229d69}\label{_e_s_p_8ino_a59a311e0716b6bc0ed2ac22733229d69}} 
+String \hyperlink{_e_s_p_8ino_a59a311e0716b6bc0ed2ac22733229d69}{recive\+Data} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em recived M\+Q\+TT message \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_e_s_p_8ino_af1ed86400868e77d74d8d21a81043456}\label{_e_s_p_8ino_af1ed86400868e77d74d8d21a81043456}} 
+char $\ast$ \hyperlink{_e_s_p_8ino_af1ed86400868e77d74d8d21a81043456}{recive\+Data\+Byte} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em recived serial message \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Green\+House I\+OT -\/ E\+SP. 
+
+\begin{DoxyAuthor}{Author}
+by Szymon Markiewicz
+\end{DoxyAuthor}
+\href{http://www.inzynierdomu.pl/}{\tt http\+://www.\+inzynierdomu.\+pl/} \begin{DoxyDate}{Date}
+04-\/2017 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_e_s_p_8ino_ac3a129f66dc859e2b7279565f4e1de78}\label{_e_s_p_8ino_ac3a129f66dc859e2b7279565f4e1de78}} 
+\index{E\+S\+P.\+ino@{E\+S\+P.\+ino}!callback@{callback}}
+\index{callback@{callback}!E\+S\+P.\+ino@{E\+S\+P.\+ino}}
+\subsubsection{\texorpdfstring{callback()}{callback()}}
+{\footnotesize\ttfamily void callback (\begin{DoxyParamCaption}\item[{char $\ast$}]{topic,  }\item[{byte $\ast$}]{payload,  }\item[{unsigned int}]{length }\end{DoxyParamCaption})}
+
+
+
+callback for recived message by M\+Q\+TT 
+
+
+\begin{DoxyParams}{Parameters}
+{\em topic} & M\+Q\+TT subscribed topic \\
+\hline
+{\em payload} & M\+Q\+TT message \\
+\hline
+{\em length} & length M\+Q\+TT message \\
+\hline
+\end{DoxyParams}

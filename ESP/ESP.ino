@@ -1,17 +1,29 @@
+/**
+ * @file ESP.ino
+ * @brief GreenHouse IOT - ESP
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/  
+ * @date 04-2017
+ */
+
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h> 
 #include "Config.h"
 
 #define DEBUG
  
-WiFiClient espClient;
-PubSubClient client(espClient);
-char buf[50];
+WiFiClient espClient;             ///< ESP client for WIFI
+PubSubClient client(espClient);   ///< connect MQTT on configuration WIFI
 
-String reciveData = ""; 
-char* reciveDataByte = "";
+char buf[50];               ///< buffer for recived serial message 
+String reciveData = "";     ///< recived MQTT message 
+char* reciveDataByte = "";  ///< recived serial message 
 
-void setup() {
+/**
+ * @brief preparation to work, startup
+ */
+void setup() 
+{
 #ifdef DEBUG
   Serial.begin(115200);
 #endif
@@ -20,8 +32,11 @@ void setup() {
   client.setCallback(callback);
 }
 
-void setup_wifi() {
-
+/**
+ * @brief preparation WIFI communication
+ */
+void setup_wifi() 
+{
   delay(10);
 #ifdef DEBUG  
   Serial.println();
@@ -30,7 +45,8 @@ void setup_wifi() {
 #endif
   WiFi.begin(ssid, password);
 
-  while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED) 
+  {
     delay(500);
 #ifdef DEBUG
     Serial.print(".");
@@ -44,12 +60,20 @@ void setup_wifi() {
 #endif
 }
 
-void callback(char* topic, byte* payload, unsigned int length) {
+/**
+ * @brief callback for recived message by MQTT
+ * @param topic: MQTT subscribed topic  
+ * @param payload: MQTT message 
+ * @param length: length MQTT message
+ */
+void callback(char* topic, byte* payload, unsigned int length) 
+{
 #ifdef DEBUG
   Serial.print("Message arrived [");
   Serial.print(topic);
   Serial.print("] ");
-  for (int i = 0; i < length; i++) {
+  for (int i = 0; i < length; i++) 
+  {
     Serial.print((char)payload[i]);
   }
   Serial.println();
@@ -57,8 +81,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 #endif  
 #ifndef DEBUG
   Serial.begin(9600);
-  while (Serial.available() == 0){
-  }
+  while (Serial.available() == 0){}
 
   char a = Serial.readBytesUntil('\n', buf, 35);
   reciveData = buf;
@@ -69,18 +92,26 @@ void callback(char* topic, byte* payload, unsigned int length) {
 #endif 
 }
 
-void reconnect() {
-  while (!client.connected()) {
+/**
+ * @brief connect to MQTT
+ */
+void reconnect() 
+{
+  while (!client.connected()) 
+  {
 #ifdef DEBUG    
     Serial.print("Attempting MQTT connection...");
 #endif
-    if (client.connect("ESP8266Client")) {
+    if (client.connect("ESP8266Client"))
+    {
 #ifdef DEBUG      
       Serial.println("connected");
 #endif      
       client.publish("outTopic", "test");
       client.subscribe("inTopic");
-    } else {
+    } 
+    else
+    {
 #ifdef DEBUG      
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -90,11 +121,15 @@ void reconnect() {
     }
   }
 }
-void loop() {
 
-  if (!client.connected()) {
+/**
+ * @brief main loop
+ */
+void loop() 
+{
+  if (!client.connected()) 
+  {
     reconnect();
   }
   client.loop();
-  
 }
