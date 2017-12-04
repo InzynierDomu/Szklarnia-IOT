@@ -1,0 +1,123 @@
+\hypertarget{_arduino_8ino}{}\section{Arduino.\+ino File Reference}
+\label{_arduino_8ino}\index{Arduino.\+ino@{Arduino.\+ino}}
+
+
+Green\+House I\+OT -\/ Main.  
+
+
+{\ttfamily \#include \char`\"{}Measurement.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Output.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E\+S\+P\+Com.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Pins.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_arduino_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{_arduino_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
+void \hyperlink{_arduino_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\begin{DoxyCompactList}\small\item\em preparation to work, startup \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_afe461d27b9c48d5921c00d521181f12f}\label{_arduino_8ino_afe461d27b9c48d5921c00d521181f12f}} 
+void \hyperlink{_arduino_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\begin{DoxyCompactList}\small\item\em main loop \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_ab68e0fadbdf08bac0bac225684590691}\label{_arduino_8ino_ab68e0fadbdf08bac0bac225684590691}} 
+void \hyperlink{_arduino_8ino_ab68e0fadbdf08bac0bac225684590691}{S\+VR} ()
+\begin{DoxyCompactList}\small\item\em supervisor to control errors \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a0fa4431e3bcdb9b59211aa7b7cb0c913}\label{_arduino_8ino_a0fa4431e3bcdb9b59211aa7b7cb0c913}} 
+void \hyperlink{_arduino_8ino_a0fa4431e3bcdb9b59211aa7b7cb0c913}{Light\+Inter} ()
+\begin{DoxyCompactList}\small\item\em light intrrupt \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_aa11606a63bbe57842b51321e714a8daf}\label{_arduino_8ino_aa11606a63bbe57842b51321e714a8daf}} 
+void \hyperlink{_arduino_8ino_aa11606a63bbe57842b51321e714a8daf}{serial\+Event} ()
+\begin{DoxyCompactList}\small\item\em serial interrupt \end{DoxyCompactList}\item 
+void \hyperlink{_arduino_8ino_a3640ee72ee61eaba275b032cfce4f023}{Reaction} (char data)
+\begin{DoxyCompactList}\small\item\em reactions for recived char from serial \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a6d27cb0438359d299b4e536208457cc9}\label{_arduino_8ino_a6d27cb0438359d299b4e536208457cc9}} 
+void \hyperlink{_arduino_8ino_a6d27cb0438359d299b4e536208457cc9}{Print\+Measurements} ()
+\begin{DoxyCompactList}\small\item\em print mesurments value via serial \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_arduino_8ino_aaaf39ca8a530c18f5b676653226ed2d2}\label{_arduino_8ino_aaaf39ca8a530c18f5b676653226ed2d2}} 
+const int \hyperlink{_arduino_8ino_aaaf39ca8a530c18f5b676653226ed2d2}{max\+Err\+Cnt} = 5
+\begin{DoxyCompactList}\small\item\em counter after error appear \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a0cb31a1609e2113fa6e0f347ac1e660f}\label{_arduino_8ino_a0cb31a1609e2113fa6e0f347ac1e660f}} 
+const int \hyperlink{_arduino_8ino_a0cb31a1609e2113fa6e0f347ac1e660f}{pump\+On\+Time} = 10
+\begin{DoxyCompactList}\small\item\em time when pump turn on in reps main loop \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_af2c91a05f64d5c55fb0789a2b8e11d04}\label{_arduino_8ino_af2c91a05f64d5c55fb0789a2b8e11d04}} 
+const int \hyperlink{_arduino_8ino_af2c91a05f64d5c55fb0789a2b8e11d04}{temp\+Multiplier} = 100
+\begin{DoxyCompactList}\small\item\em multiplier to convert float to int value \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_ad777e59aed9e79afa28b5391460429d6}\label{_arduino_8ino_ad777e59aed9e79afa28b5391460429d6}} 
+bool \hyperlink{_arduino_8ino_ad777e59aed9e79afa28b5391460429d6}{first\+Loop}
+\begin{DoxyCompactList}\small\item\em frist loop flag \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a2535ed80a26087634b035a74cceecaa3}\label{_arduino_8ino_a2535ed80a26087634b035a74cceecaa3}} 
+float \hyperlink{_arduino_8ino_a2535ed80a26087634b035a74cceecaa3}{average\+Temp}
+\begin{DoxyCompactList}\small\item\em avarage value of temperature \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_af5e0ea6db57c01a90d06aa2e41644457}\label{_arduino_8ino_af5e0ea6db57c01a90d06aa2e41644457}} 
+int \hyperlink{_arduino_8ino_af5e0ea6db57c01a90d06aa2e41644457}{avarage\+Tank}
+\begin{DoxyCompactList}\small\item\em avarge value of level liquid in tank \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a308d3494d1a6c60ad321fe2681dd84eb}\label{_arduino_8ino_a308d3494d1a6c60ad321fe2681dd84eb}} 
+int \hyperlink{_arduino_8ino_a308d3494d1a6c60ad321fe2681dd84eb}{avarage\+Light}
+\begin{DoxyCompactList}\small\item\em avarage value of light intensity \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a5f7ab85b02c44f467b415757d40c513a}\label{_arduino_8ino_a5f7ab85b02c44f467b415757d40c513a}} 
+int \hyperlink{_arduino_8ino_a5f7ab85b02c44f467b415757d40c513a}{avarage\+Hum}
+\begin{DoxyCompactList}\small\item\em avarage value of air humidity \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a11614f44ef4d939bdd984953346a7572}\label{_arduino_8ino_a11614f44ef4d939bdd984953346a7572}} 
+int \hyperlink{_arduino_8ino_a11614f44ef4d939bdd984953346a7572}{error}
+\begin{DoxyCompactList}\small\item\em error code \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a4bba68f0c545695ccbee78cbc3178c52}\label{_arduino_8ino_a4bba68f0c545695ccbee78cbc3178c52}} 
+int \hyperlink{_arduino_8ino_a4bba68f0c545695ccbee78cbc3178c52}{err\+Cnt\+\_\+ds18b20}
+\begin{DoxyCompactList}\small\item\em counter for error from thermometer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a762324a017b4ef844d8ef04f1c2ff667}\label{_arduino_8ino_a762324a017b4ef844d8ef04f1c2ff667}} 
+int \hyperlink{_arduino_8ino_a762324a017b4ef844d8ef04f1c2ff667}{err\+Cnt\+\_\+tank}
+\begin{DoxyCompactList}\small\item\em counter for error from tank lvel sensor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a78d8111fe058674f6e1cb42c57c7ad94}\label{_arduino_8ino_a78d8111fe058674f6e1cb42c57c7ad94}} 
+int \hyperlink{_arduino_8ino_a78d8111fe058674f6e1cb42c57c7ad94}{err\+Cnt\+\_\+light}
+\begin{DoxyCompactList}\small\item\em counter for error from light sensor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a8fa83054915d03b2649601aa6c2881e9}\label{_arduino_8ino_a8fa83054915d03b2649601aa6c2881e9}} 
+int \hyperlink{_arduino_8ino_a8fa83054915d03b2649601aa6c2881e9}{err\+Cnt\+\_\+hum}
+\begin{DoxyCompactList}\small\item\em counter for error from humidity sensor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_ab22552dcafcc63428380f986daa57a7a}\label{_arduino_8ino_ab22552dcafcc63428380f986daa57a7a}} 
+bool \hyperlink{_arduino_8ino_ab22552dcafcc63428380f986daa57a7a}{light\+Status}
+\begin{DoxyCompactList}\small\item\em status light relay \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_afb07fce91e776c20174a8dad1a9b6e55}\label{_arduino_8ino_afb07fce91e776c20174a8dad1a9b6e55}} 
+bool \hyperlink{_arduino_8ino_afb07fce91e776c20174a8dad1a9b6e55}{pump\+Status}
+\begin{DoxyCompactList}\small\item\em status pump relay \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_a1384c71f69c4e12ff799f524a8314306}\label{_arduino_8ino_a1384c71f69c4e12ff799f524a8314306}} 
+int \hyperlink{_arduino_8ino_a1384c71f69c4e12ff799f524a8314306}{pump\+Timer}
+\begin{DoxyCompactList}\small\item\em counter for turn on reps \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_ac8c7461973f3ec00368f016d3b9dc5d4}\label{_arduino_8ino_ac8c7461973f3ec00368f016d3b9dc5d4}} 
+bool \hyperlink{_arduino_8ino_ac8c7461973f3ec00368f016d3b9dc5d4}{err\+Led\+Status}
+\begin{DoxyCompactList}\small\item\em status error led \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_ae5e1acc5a587e20678d007f4fcc3dbf7}\label{_arduino_8ino_ae5e1acc5a587e20678d007f4fcc3dbf7}} 
+char \hyperlink{_arduino_8ino_ae5e1acc5a587e20678d007f4fcc3dbf7}{in\+Char}
+\begin{DoxyCompactList}\small\item\em serial recived char \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_arduino_8ino_ab5300e2f6946c08a6478743e043a48c0}\label{_arduino_8ino_ab5300e2f6946c08a6478743e043a48c0}} 
+\hyperlink{class_output}{Output} \hyperlink{_arduino_8ino_ab5300e2f6946c08a6478743e043a48c0}{output}
+\begin{DoxyCompactList}\small\item\em Outputs control methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Green\+House I\+OT -\/ Main. 
+
+\begin{DoxyAuthor}{Author}
+by Szymon Markiewicz
+\end{DoxyAuthor}
+\href{http://www.inzynierdomu.pl/}{\tt http\+://www.\+inzynierdomu.\+pl/} \begin{DoxyDate}{Date}
+04-\/2017 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_arduino_8ino_a3640ee72ee61eaba275b032cfce4f023}\label{_arduino_8ino_a3640ee72ee61eaba275b032cfce4f023}} 
+\index{Arduino.\+ino@{Arduino.\+ino}!Reaction@{Reaction}}
+\index{Reaction@{Reaction}!Arduino.\+ino@{Arduino.\+ino}}
+\subsubsection{\texorpdfstring{Reaction()}{Reaction()}}
+{\footnotesize\ttfamily void Reaction (\begin{DoxyParamCaption}\item[{char}]{data }\end{DoxyParamCaption})}
+
+
+
+reactions for recived char from serial 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & recived char \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,87 @@
+\hypertarget{class_e_s_p_com}{}\section{E\+S\+P\+Com Class Reference}
+\label{class_e_s_p_com}\index{E\+S\+P\+Com@{E\+S\+P\+Com}}
+
+
+Arduino-\/\+E\+SP communication.  
+
+
+
+
+{\ttfamily \#include $<$E\+S\+P\+Com.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_e_s_p_com_adb3506c54acc4b5101fccf1204b3796c}{Send\+Respons\+Msg} (char data)
+\begin{DoxyCompactList}\small\item\em send one char via serial port \end{DoxyCompactList}\item 
+void \hyperlink{class_e_s_p_com_a11cf05fd9d9c7ebe9b49b18e0d2fa0ab}{Send\+Mesure\+Msg} (int $\ast$data, int len)
+\begin{DoxyCompactList}\small\item\em send avarage mesruments status and C\+RC via serial \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_e_s_p_com_a7fe56834c6cd56973666812d758bcfb9}{Calc\+Int\+C\+R\+C8} (int $\ast$data, int len)
+\begin{DoxyCompactList}\small\item\em Calculate C\+R\+C8 checksum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Arduino-\/\+E\+SP communication. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_s_p_com_a7fe56834c6cd56973666812d758bcfb9}\label{class_e_s_p_com_a7fe56834c6cd56973666812d758bcfb9}} 
+\index{E\+S\+P\+Com@{E\+S\+P\+Com}!Calc\+Int\+C\+R\+C8@{Calc\+Int\+C\+R\+C8}}
+\index{Calc\+Int\+C\+R\+C8@{Calc\+Int\+C\+R\+C8}!E\+S\+P\+Com@{E\+S\+P\+Com}}
+\subsubsection{\texorpdfstring{Calc\+Int\+C\+R\+C8()}{CalcIntCRC8()}}
+{\footnotesize\ttfamily int E\+S\+P\+Com\+::\+Calc\+Int\+C\+R\+C8 (\begin{DoxyParamCaption}\item[{int $\ast$}]{data,  }\item[{int}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculate C\+R\+C8 checksum. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data to calculate crc \\
+\hline
+{\em len} & lenght of date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+C8 from date 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_e_s_p_com_a11cf05fd9d9c7ebe9b49b18e0d2fa0ab}\label{class_e_s_p_com_a11cf05fd9d9c7ebe9b49b18e0d2fa0ab}} 
+\index{E\+S\+P\+Com@{E\+S\+P\+Com}!Send\+Mesure\+Msg@{Send\+Mesure\+Msg}}
+\index{Send\+Mesure\+Msg@{Send\+Mesure\+Msg}!E\+S\+P\+Com@{E\+S\+P\+Com}}
+\subsubsection{\texorpdfstring{Send\+Mesure\+Msg()}{SendMesureMsg()}}
+{\footnotesize\ttfamily void E\+S\+P\+Com\+::\+Send\+Mesure\+Msg (\begin{DoxyParamCaption}\item[{int $\ast$}]{data,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+send avarage mesruments status and C\+RC via serial 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & array values to send \\
+\hline
+{\em len} & lenght of date array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_e_s_p_com_adb3506c54acc4b5101fccf1204b3796c}\label{class_e_s_p_com_adb3506c54acc4b5101fccf1204b3796c}} 
+\index{E\+S\+P\+Com@{E\+S\+P\+Com}!Send\+Respons\+Msg@{Send\+Respons\+Msg}}
+\index{Send\+Respons\+Msg@{Send\+Respons\+Msg}!E\+S\+P\+Com@{E\+S\+P\+Com}}
+\subsubsection{\texorpdfstring{Send\+Respons\+Msg()}{SendResponsMsg()}}
+{\footnotesize\ttfamily void E\+S\+P\+Com\+::\+Send\+Respons\+Msg (\begin{DoxyParamCaption}\item[{char}]{data }\end{DoxyParamCaption})}
+
+
+
+send one char via serial port 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & char to send via serial port \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_e_s_p_com_8h}{E\+S\+P\+Com.\+h}\item 
+\hyperlink{_e_s_p_com_8cpp}{E\+S\+P\+Com.\+cpp}\end{DoxyCompactItemize}

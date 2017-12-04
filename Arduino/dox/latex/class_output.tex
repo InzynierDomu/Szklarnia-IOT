@@ -1,0 +1,104 @@
+\hypertarget{class_output}{}\section{Output Class Reference}
+\label{class_output}\index{Output@{Output}}
+
+
+handler mapping outputs  
+
+
+
+
+{\ttfamily \#include $<$Output.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_output_a428c663520336477a12f1a33504eb067}\label{class_output_a428c663520336477a12f1a33504eb067}} 
+\hyperlink{class_output_a428c663520336477a12f1a33504eb067}{Output} ()
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+void \hyperlink{class_output_a6da518ba07072a13a7f143d12adc1246}{Set\+Light} (bool state)
+\begin{DoxyCompactList}\small\item\em set light relay state \end{DoxyCompactList}\item 
+void \hyperlink{class_output_a3d0ab08436b9c18861a2ae060f0aec88}{Set\+Pump} (bool \&state, int \&timer)
+\begin{DoxyCompactList}\small\item\em set pump relay state \end{DoxyCompactList}\item 
+void \hyperlink{class_output_a1e7758e1982620e4c162d171f6c07689}{Set\+Err\+Led} (bool state)
+\begin{DoxyCompactList}\small\item\em set error led state \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_output_a3e677a7f19fd58a5e62a093f5eb685db}{Set\+Pin\+Lvl} (int pin, bool state)
+\begin{DoxyCompactList}\small\item\em set output pin state \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+handler mapping outputs 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_output_a1e7758e1982620e4c162d171f6c07689}\label{class_output_a1e7758e1982620e4c162d171f6c07689}} 
+\index{Output@{Output}!Set\+Err\+Led@{Set\+Err\+Led}}
+\index{Set\+Err\+Led@{Set\+Err\+Led}!Output@{Output}}
+\subsubsection{\texorpdfstring{Set\+Err\+Led()}{SetErrLed()}}
+{\footnotesize\ttfamily void Output\+::\+Set\+Err\+Led (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+set error led state 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & expected state \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_output_a6da518ba07072a13a7f143d12adc1246}\label{class_output_a6da518ba07072a13a7f143d12adc1246}} 
+\index{Output@{Output}!Set\+Light@{Set\+Light}}
+\index{Set\+Light@{Set\+Light}!Output@{Output}}
+\subsubsection{\texorpdfstring{Set\+Light()}{SetLight()}}
+{\footnotesize\ttfamily void Output\+::\+Set\+Light (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+set light relay state 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & expected state \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_output_a3e677a7f19fd58a5e62a093f5eb685db}\label{class_output_a3e677a7f19fd58a5e62a093f5eb685db}} 
+\index{Output@{Output}!Set\+Pin\+Lvl@{Set\+Pin\+Lvl}}
+\index{Set\+Pin\+Lvl@{Set\+Pin\+Lvl}!Output@{Output}}
+\subsubsection{\texorpdfstring{Set\+Pin\+Lvl()}{SetPinLvl()}}
+{\footnotesize\ttfamily void Output\+::\+Set\+Pin\+Lvl (\begin{DoxyParamCaption}\item[{int}]{pin,  }\item[{bool}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+set output pin state 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & number G\+P\+IO pin to change state \\
+\hline
+{\em state} & expected pin state \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_output_a3d0ab08436b9c18861a2ae060f0aec88}\label{class_output_a3d0ab08436b9c18861a2ae060f0aec88}} 
+\index{Output@{Output}!Set\+Pump@{Set\+Pump}}
+\index{Set\+Pump@{Set\+Pump}!Output@{Output}}
+\subsubsection{\texorpdfstring{Set\+Pump()}{SetPump()}}
+{\footnotesize\ttfamily void Output\+::\+Set\+Pump (\begin{DoxyParamCaption}\item[{bool \&}]{state,  }\item[{int \&}]{timer }\end{DoxyParamCaption})}
+
+
+
+set pump relay state 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & expected state \\
+\hline
+{\em timer} & must be more than 0 to turn on pump \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_output_8h}{Output.\+h}\item 
+\hyperlink{_output_8cpp}{Output.\+cpp}\end{DoxyCompactItemize}

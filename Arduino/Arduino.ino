@@ -1,7 +1,9 @@
-/*
-  GreenHouse IOT - Main
-  Create by Szymon Markiewicz
-  http://www.inzynierdomu.pl/
+/**
+ * @file Arduino.ino
+ * @brief GreenHouse IOT - Main
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/  
+ * @date 04-2017
  */
 
 #include "Measurement.h"
@@ -11,28 +13,31 @@
 
 //#define DEBUG
 
-const int maxErrCnt = 5;
-const int pumpOnTime = 10;
-const int tempMultiplier = 100;
+const int maxErrCnt = 5;          ///< counter after error appear
+const int pumpOnTime = 10;        ///< time when pump turn on in reps main loop
+const int tempMultiplier = 100;   ///< multiplier to convert float to int value 
 
-bool firstLoop;
-float averageTemp;
-int avarageTank;
-int avarageLight;
-int avarageHum;
-int error;
-int errCnt_ds18b20;
-int errCnt_tank;
-int errCnt_light;
-int errCnt_hum;
-bool lightStatus;
-bool pumpStatus;
-int pumpTimer;
-bool errLedStatus;
-char inChar;
+bool firstLoop;       ///< frist loop flag
+float averageTemp;    ///< avarage value of temperature
+int avarageTank;      ///< avarge value of level liquid in tank
+int avarageLight;     ///< avarage value of light intensity
+int avarageHum;       ///< avarage value of air humidity
+int error;            ///< error code
+int errCnt_ds18b20;   ///< counter for error from thermometer
+int errCnt_tank;      ///< counter for error from tank lvel sensor
+int errCnt_light;     ///< counter for error from light sensor
+int errCnt_hum;       ///< counter for error from humidity sensor
+bool lightStatus;     ///< status light relay
+bool pumpStatus;      ///< status pump relay
+int pumpTimer;        ///< counter for turn on reps
+bool errLedStatus;    ///< status error led
+char inChar;          ///< serial recived char
 
-Output output;
+Output output;        ///< Outputs control methods
 
+/**
+ * @brief preparation to work, startup
+ */
 void setup()
 {
   firstLoop = true;
@@ -54,6 +59,9 @@ void setup()
   Serial.begin(9600);
 }
 
+/**
+ * @brief main loop
+ */
 void loop()
 {	
 #ifdef DEBUG
@@ -93,6 +101,9 @@ void loop()
   delay(2);
 }
 
+/**
+ * @brief supervisor to control errors
+ */
 void SVR()
 {
   if (errCnt_ds18b20 > maxErrCnt) error = 2;
@@ -101,12 +112,18 @@ void SVR()
   if (errCnt_hum > maxErrCnt) error = 5;
 }
 
+/**
+ * @brief light intrrupt 
+ */
 void LightInter()
 {
   lightStatus = !lightStatus;
   delay(2);
 }
 
+/**
+ * @brief serial interrupt
+ */
 void serialEvent() {
   char rec;
   char serialBuf[1]; 
@@ -117,6 +134,10 @@ void serialEvent() {
   inChar = serialBuf[0];
 }
 
+/**
+ * @brief reactions for recived char from serial
+ * @param data: recived char
+ */
 void Reaction(char data)
 {
   ESPCom espcom;
@@ -154,6 +175,9 @@ void Reaction(char data)
   }
 }
 
+/**
+ * @brief print mesurments value via serial 
+ */
 void PrintMeasurements()
 {
   Serial.print("Temp: ");
