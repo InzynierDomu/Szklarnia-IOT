@@ -10,7 +10,7 @@
 #include <PubSubClient.h> 
 #include "Config.h"
 
-#define DEBUG
+//#define DEBUG
  
 WiFiClient espClient;             ///< ESP client for WIFI
 PubSubClient client(espClient);   ///< connect MQTT on configuration WIFI
@@ -68,6 +68,7 @@ void setup_wifi()
  */
 void callback(char* topic, byte* payload, unsigned int length) 
 {
+  Serial.begin(9600);
 #ifdef DEBUG
   Serial.print("Message arrived [");
   Serial.print(topic);
@@ -77,18 +78,18 @@ void callback(char* topic, byte* payload, unsigned int length)
     Serial.print((char)payload[i]);
   }
   Serial.println();
+#endif 
   Serial.print((char)payload[0] );
-#endif  
-#ifndef DEBUG
-  Serial.begin(9600);
+   
   while (Serial.available() == 0){}
 
   char a = Serial.readBytesUntil('\n', buf, 35);
   reciveData = buf;
   Serial.end();
-
   reciveData.toCharArray(reciveDataByte, 35);
   client.publish(publishTopic, reciveDataByte);
+#ifndef DEBUG
+  Serial.print("send response");
 #endif 
 }
 
@@ -108,7 +109,7 @@ void reconnect()
       Serial.println("connected");
 #endif      
       client.publish("outTopic", "test");
-      client.subscribe("inTopic");
+      client.subscribe(subscribeTopic);
     } 
     else
     {
