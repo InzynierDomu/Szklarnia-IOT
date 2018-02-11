@@ -129,7 +129,9 @@ void serialEvent() {
   char serialBuf[1]; 
   
   rec = Serial.readBytes(serialBuf, 1);
+#ifdef DEBUG 
   Serial.println(serialBuf[0]);
+#endif 
 
   inChar = serialBuf[0];
 }
@@ -141,7 +143,6 @@ void serialEvent() {
 void Reaction(char data)
 {
   ESPCom espcom;
-  espcom.SendResponsMsg(inChar);
   switch (data){
     case '1':  //reset
     {
@@ -158,16 +159,19 @@ void Reaction(char data)
     case '3':  //change light status
     {
       lightStatus = !lightStatus;
+      espcom.SendResponsMsg(inChar);
     }
     break;
     case '4':  //change pump status
     {
       pumpStatus = true;
       pumpTimer = pumpOnTime;
+      espcom.SendResponsMsg(inChar);
     }
     case '5':  //clear error
     {
       error = 0;
+      espcom.SendResponsMsg(inChar);
     }
     break;
     default:

@@ -6,8 +6,8 @@
  * @date 04-2017
  */
 
-#define ssid  "Nazwa_wifi"                      ///< personal Name WIFI
-#define password  "haslo_do_wifi"               ///< personal password for WIFI
-#define mqtt_server  "192.168.0.169"            ///< personal IP MQTT broker
-#define subscribeTopic  "/greenHouse/recive"    ///< subscribe MQTT topic
-#define publishTopic  "/greenHouse/cmd"         ///< MQTT topic to publishing
+#define ssid  "wi fi"                               ///< Nazwa naszego Wi-Fi
+#define password  "haslo"                           ///< Hasło Wi-Fi
+#define mqtt_server  "192.168.0.169"                ///< ip raspberry pi lub innego serwera
+#define subscribeTopic  "/greenHouse/cmd"           ///< topic do subskrypcji rozkazow
+#define publishTopic  "/greenHouse/recive"          ///< topic do wysylania pomiarow

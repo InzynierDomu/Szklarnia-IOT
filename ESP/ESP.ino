@@ -108,7 +108,6 @@ void reconnect()
 #ifdef DEBUG      
       Serial.println("connected");
 #endif      
-      client.publish("outTopic", "test");
       client.subscribe(subscribeTopic);
     } 
     else

@@ -28,7 +28,24 @@ lenght msg(without CRC), Temperature*100, water in tank, light, humidity, error,
 ssid = ***
 password = ***
 mqtt_server = ***
-subscribe topic = /greenHouse/recive
-publish topic = /greenHouse/cmd
+publish topic = /greenHouse/recive
+subscribe topic = /greenHouse/cmd
 
 //---Broker---//
+
+192.168.0.169
+
+publish topic = /greenHouse/cmd
+subscribe topic = /greenHouse/cmd
+subscribe topic = /greenHouse/recive
+
+//--Database--//
+No - int AI
+Temperature - int
+WaterLvl - int
+LightLvl - int
+AirHumidity - int
+Error - int
+LightStatus - bool (0/1)
+PumpStatus - bool (0/1)
+DataTime - Current time stamp

@@ -30,6 +30,7 @@ void ESPCom::SendMesureMsg(int* data, int len)
     Serial.print(" ");
     Serial.print(data[i]);
   }
+  Serial.print(" ");
   Serial.print(CalcIntCRC8(data, len));
   Serial.println();
 }
