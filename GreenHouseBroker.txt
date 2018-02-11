@@ -1,0 +1,33 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Providers: GreenHouseBroker
+# Required-Start: $remote_fs $syslog $network
+# Required-Stop: $remote_fs $syslog $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Greenhouse broker
+# Description: Greenhouse broker
+### END INIT INFO
+
+#/etc/init.d/GreenHouseBroker
+
+export HOME
+case "$1" in
+        start)
+                echo "Turn on Greenhouse broker"
+                sudo /usr/bin/python /usr/bin/GreenHouse_sub_cmd.py 2>&1 &
+                ;;
+
+        stop)
+                echo "Turn off Greenhouse broker"
+                PID=`ps auxwww | grep GreenHouse_sub_cmd.py | head -1| awk '{print $2}'`
+                kill -9 $PID
+                ;;
+        *)
+                echo "Greenhouse broker working {start|stop}"
+                exit 1
+
+esac
+
+exit 0
