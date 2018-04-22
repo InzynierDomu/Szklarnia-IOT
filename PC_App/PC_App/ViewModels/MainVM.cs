@@ -18,6 +18,12 @@ namespace PC_App.ViewModels
     class MainVM : INotifyPropertyChanged
     {
 
+        #region Objects
+        #endregion
+
+        #region Commands
+        #endregion
+
         #region MVVM
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -30,6 +36,6 @@ namespace PC_App.ViewModels
             }
         }
 
-        #endregion
+    #endregion
     }
 }
