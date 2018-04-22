@@ -39,7 +39,7 @@
                             <DataGridTextColumn Header="No"/>
                             <DataGridTextColumn Header="Time stamp" />
                             <DataGridTextColumn Header="In. Temp. ['C]"/>
-                            <DataGridTextColumn Header="Out. Temp. ['C]"/>
+                            <DataGridTextColumn Header="Water lvl [%]"/>
                             <DataGridTextColumn Header="In. Hum. [%]"/>
                             <DataGridTextColumn Header="Out. Lig. [%]"/>
                             <DataGridTextColumn Header="Soil Hum. [%]"/>
