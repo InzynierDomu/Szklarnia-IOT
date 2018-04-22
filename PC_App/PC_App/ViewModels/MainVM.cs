@@ -17,11 +17,51 @@ namespace PC_App.ViewModels
 {
     class MainVM : INotifyPropertyChanged
     {
+        public MainVM()
+        {
+            Mqtt = new MQTTConnect();
+
+            SendGHLightChange = new Command(lightChange);
+            SendGHPump = new Command(pump);
+            SendGHRestart = new Command(restart);
+            SendGHClearErrors = new Command(clearerrors);
+        }
 
         #region Objects
+
+        private MQTTConnect _mqtt;
+        public MQTTConnect Mqtt
+        {
+            get { return _mqtt; }
+            set { _mqtt = value; OnPropertyChanged("Mqtt"); }
+        }
+
         #endregion
 
         #region Commands
+        public Command SendGHLightChange { get; set; }
+        private void lightChange()
+        {
+            Mqtt.ChangeLight();
+        }
+
+        public Command SendGHPump { get; set; }
+        private void pump()
+        {
+            Mqtt.Pump();
+        }
+
+        public Command SendGHRestart { get; set; }
+        private void restart()
+        {
+            Mqtt.Reset();
+        }
+
+        public Command SendGHClearErrors { get; set; }
+        private void clearerrors()
+        {
+            Mqtt.ClearErrors();
+        }
         #endregion
 
         #region MVVM
@@ -36,6 +76,6 @@ namespace PC_App.ViewModels
             }
         }
 
-    #endregion
+        #endregion
     }
 }

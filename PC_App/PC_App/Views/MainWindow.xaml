@@ -58,8 +58,8 @@
             <TabItem Header="Manual control">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="180"/>
-                        <RowDefinition Height="180"/>
+                        <RowDefinition Height="160"/>
+                        <RowDefinition Height="160"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -73,9 +73,9 @@
                     <GroupBox Header="MQTT" Grid.Row="0" Grid.Column="1" Margin="5">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="40"/>
-                                <RowDefinition Height="40"/>
-                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="60"/>
@@ -84,17 +84,17 @@
                                 <ColumnDefinition Width="110"/>
                             </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="0" Grid.Column="0" Margin="5" Content="User:"/>
-                            <TextBox Grid.Row="0" Grid.Column="1" Margin="5"/>
-                            <Label Grid.Row="1" Grid.Column="0" Margin="5" Content="Server:"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Margin="5"/>
-                            <Label Grid.Row="2" Grid.Column="0" Margin="5" Content="Pass:"/>
-                            <TextBox Grid.Row="2" Grid.Column="1" Margin="5"/>
-                            <Label Grid.Row="0" Grid.Column="2" Margin="5" Content="Topic:"/>
-                            <TextBox Grid.Row="0" Grid.Column="3" Margin="5"/>
-                            <Label Grid.Row="1" Grid.Column="2" Margin="5" Content="Port:"/>
-                            <TextBox Grid.Row="1" Grid.Column="3" Margin="5"/>
-                            <Label Grid.Row="2" Grid.Column="2" Margin="5" Content="Port SSL:"/>
+                            <Label Grid.Row="0" Grid.Column="0"  Content="User:"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Path=Mqtt.User, Mode=TwoWay}"/>
+                            <Label Grid.Row="1" Grid.Column="0"  Content="Server:"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Path=Mqtt.Server, Mode=TwoWay}"/>
+                            <Label Grid.Row="2" Grid.Column="0"  Content="Pass:"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding Path=Mqtt.Pass, Mode=TwoWay}"/>
+                            <Label Grid.Row="0" Grid.Column="2"  Content="Topic:"/>
+                            <TextBox Grid.Row="0" Grid.Column="3" Margin="5" Text="{Binding Path=Mqtt.TopicToSend, Mode=TwoWay}"/>
+                            <Label Grid.Row="1" Grid.Column="2"  Content="Port:"/>
+                            <TextBox Grid.Row="1" Grid.Column="3" Margin="5" Text="{Binding Path=Mqtt.Port, Mode=TwoWay}"/>
+                            <Label Grid.Row="2" Grid.Column="2"  Content="Port SSL:"/>
                             <TextBox Grid.Row="2" Grid.Column="3" Margin="5"/>
                         </Grid>
                     </GroupBox>
@@ -102,7 +102,24 @@
                         
                     </GroupBox>
                     <GroupBox Header="Control" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5">
-                        
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="120"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Row="0" Grid.Column="0" Margin="10" Content="Reset" Command="{Binding SendGHRestart}"/>
+                            <Button Grid.Row="0" Grid.Column="1" Margin="10" Content="Clear error" Command="{Binding SendGHClearErrors}"/>
+                            <Button Grid.Row="0" Grid.Column="2" Margin="10" Content="Light" Command="{Binding SendGHLightChange}"/>
+                            <Button Grid.Row="1" Grid.Column="2" Margin="10" Content="Pump" Command="{Binding SendGHPump}"/>
+                        </Grid>
                     </GroupBox>
                 </Grid>
             </TabItem>
