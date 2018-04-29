@@ -21,6 +21,7 @@ namespace PC_App.ViewModels
         {
             Mqtt = new MQTTConnect();
             Database = new DBconnect();
+            Chart = new Plot(Database);
 
             SendGHLightChange = new Command(lightChange);
             SendGHPump = new Command(pump);
@@ -42,6 +43,13 @@ namespace PC_App.ViewModels
         {
             get { return _database; }
             set { _database = value; OnPropertyChanged("Database"); }
+        }
+
+        private Plot _chart;
+        public Plot Chart
+        {
+            get { return _chart; }
+            set { _chart = value; OnPropertyChanged("Chart"); }
         }
 
         #endregion

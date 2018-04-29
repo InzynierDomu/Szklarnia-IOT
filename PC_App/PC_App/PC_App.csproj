@@ -128,8 +128,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\Command.cs" />
-    <Compile Include="GHDataBase.cs" />
-    <Compile Include="GreenHouseDB.cs" />
+    <Compile Include="Data\GHDataBase.cs" />
+    <Compile Include="Data\GreenHouseDB.cs" />
     <Compile Include="Models\DBconnect.cs" />
     <Compile Include="Models\MQTTConnect.cs" />
     <Compile Include="ViewModels\MainVM.cs" />

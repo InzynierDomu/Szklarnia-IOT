@@ -34,22 +34,22 @@
                     </Grid.ColumnDefinitions>
 
                     <Button Grid.Row="0" Grid.Column="0" Margin="10" Content="Load"/>
-                    <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False">
+                    <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Database.DatabaseConverted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="No"/>
-                            <DataGridTextColumn Header="Time stamp" />
-                            <DataGridTextColumn Header="In. Temp. ['C]"/>
-                            <DataGridTextColumn Header="Water lvl [%]"/>
-                            <DataGridTextColumn Header="In. Hum. [%]"/>
-                            <DataGridTextColumn Header="Out. Lig. [%]"/>
-                            <DataGridTextColumn Header="Soil Hum. [%]"/>
-                            <DataGridTextColumn Header="Light [bool]"/>
-                            <DataGridTextColumn Header="error"/>
+                            <DataGridTextColumn Header="No" Binding="{Binding No}"/>
+                            <DataGridTextColumn Header="Time stamp" Binding="{Binding measuredTime}"/>
+                            <DataGridTextColumn Header="In. Temp. ['C]" Binding="{Binding InTemperature}" />
+                            <DataGridTextColumn Header="Water lvl [%]" Binding="{Binding InWaterLvl}"/>
+                            <DataGridTextColumn Header="In. Hum. [%]" Binding="{Binding InHumidity}"/>
+                            <DataGridTextColumn Header="Out. Lig. [%]" Binding="{Binding Outlight}"/>
+                            <DataGridTextColumn Header="Soil Hum. [%]" Binding="{Binding SoilHumidity}"/>
+                            <DataGridTextColumn Header="Light [bool]" Binding="{Binding LightStatus}"/>
+                            <DataGridTextColumn Header="error" Binding="{Binding ErrorNumber}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <oxy:Plot Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                    <oxy:Plot  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                         <oxy:Plot.Series>
-                            <oxy:LineSeries ItemsSource="{Binding Chart.Points}"/>
+                            <oxy:LineSeries ItemsSource="{Binding Chart.InTemperture}"/>
                         </oxy:Plot.Series>
                     </oxy:Plot>
                 </Grid> 
