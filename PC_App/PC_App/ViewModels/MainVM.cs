@@ -20,6 +20,7 @@ namespace PC_App.ViewModels
         public MainVM()
         {
             Mqtt = new MQTTConnect();
+            Database = new DBconnect();
 
             SendGHLightChange = new Command(lightChange);
             SendGHPump = new Command(pump);
@@ -34,6 +35,13 @@ namespace PC_App.ViewModels
         {
             get { return _mqtt; }
             set { _mqtt = value; OnPropertyChanged("Mqtt"); }
+        }
+
+        private DBconnect _database;
+        public DBconnect Database
+        {
+            get { return _database; }
+            set { _database = value; OnPropertyChanged("Database"); }
         }
 
         #endregion
