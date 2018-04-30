@@ -132,6 +132,7 @@
     <Compile Include="Data\GreenHouseDB.cs" />
     <Compile Include="Models\DBconnect.cs" />
     <Compile Include="Models\MQTTConnect.cs" />
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
     <Compile Include="ViewModels\Plot.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">

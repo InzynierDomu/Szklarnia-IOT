@@ -115,6 +115,16 @@ namespace PC_App.Models
             MsgSend('5', TopicToSend);
         }
 
+        public void SendSettings(Settings settings)
+        {
+            string topic = TopicToSend + "/settings";
+           //this.client = new MqttClient(server, port, false, null, null, MqttSslProtocols.None);
+           // byte code = this.client.Connect(Guid.NewGuid().ToString(), user, pass);
+            byte[] msg = new byte[64];
+
+            msg[0] = Convert.ToByte(settings.MinTemp);
+        }
+
         private void MsgSend(char toSend, string topic)
         {
             this.client = new MqttClient(server, port, false, null, null, MqttSslProtocols.None);

@@ -22,11 +22,13 @@ namespace PC_App.ViewModels
             Mqtt = new MQTTConnect();
             Database = new DBconnect();
             Chart = new Plot(Database);
+            GHSettings = new Settings();
 
             SendGHLightChange = new Command(lightChange);
             SendGHPump = new Command(pump);
             SendGHRestart = new Command(restart);
             SendGHClearErrors = new Command(clearerrors);
+            SendGHSettings = new Command(sendSettings);
         }
 
         #region Objects
@@ -50,6 +52,13 @@ namespace PC_App.ViewModels
         {
             get { return _chart; }
             set { _chart = value; OnPropertyChanged("Chart"); }
+        }
+
+        private Settings _ghsettings;
+        public Settings GHSettings
+        {
+            get { return _ghsettings; }
+            set { _ghsettings = value; OnPropertyChanged("GHSettings");}
         }
 
         #endregion
@@ -77,6 +86,12 @@ namespace PC_App.ViewModels
         private void clearerrors()
         {
             Mqtt.ClearErrors();
+        }
+
+        public Command SendGHSettings { get; set; }
+        private void sendSettings()
+        {
+            Mqtt.SendSettings(GHSettings);
         }
         #endregion
 
