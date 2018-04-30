@@ -15,13 +15,19 @@ namespace PC_App.ViewModels
         public IList<DataPoint> HumLvl { get; private set; }
         public IList<DataPoint> LightLvl { get; private set; }
         public IList<DataPoint> WaterLvl { get; private set; }
-        public IList<DataPoint> Lightlvl { get; private set; }
+        public IList<DataPoint> SoilHumLvl { get; private set; }
         public IList<DataPoint> LightStatus { get; private set; }
+        
 
 
         public Plot(DBconnect Database)
         {
             InTemperture = new List<DataPoint>();
+            HumLvl = new List<DataPoint>();
+            LightLvl = new List<DataPoint>();
+            WaterLvl = new List<DataPoint>();
+            SoilHumLvl = new List<DataPoint>();
+            LightStatus = new List<DataPoint>();
             ConvertPointsTemp(Database);         
         }
 
@@ -32,6 +38,22 @@ namespace PC_App.ViewModels
             {
                 DataPoint tempPoint = new DataPoint(point.No, point.InTemperature);
                 InTemperture.Add(tempPoint);
+
+                DataPoint HumPoint = new DataPoint(point.No, point.InHumidity);
+                HumLvl.Add(HumPoint);
+
+                DataPoint LightLvlPoint = new DataPoint(point.No, point.Outlight);
+                LightLvl.Add(LightLvlPoint);
+
+                DataPoint WaterPoint = new DataPoint(point.No, point.InWaterLvl);
+                WaterLvl.Add(WaterPoint);
+
+                DataPoint SoilHumPoints = new DataPoint(point.No, point.SoilHumidity);
+                SoilHumLvl.Add(SoilHumPoints);
+
+                DataPoint LightStatusPoint = new DataPoint(point.No, Convert.ToInt16(point.LightStatus) * 100);
+                LightStatus.Add(LightStatusPoint);
+
             }
         }
     }

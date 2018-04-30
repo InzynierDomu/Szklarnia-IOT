@@ -49,7 +49,12 @@
                     </DataGrid>
                     <oxy:Plot  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                         <oxy:Plot.Series>
-                            <oxy:LineSeries ItemsSource="{Binding Chart.InTemperture}"/>
+                            <oxy:LineSeries ItemsSource="{Binding Chart.InTemperture}" Title="In. Temp"/>
+                            <oxy:LineSeries ItemsSource="{Binding Chart.HumLvl}" Title="In. Hum."/>
+                            <oxy:LineSeries ItemsSource="{Binding Chart.LightLvl}" Title="Out Lig."/>
+                            <oxy:LineSeries ItemsSource="{Binding Chart.WaterLvl}" Title="Water lvl"/>
+                            <oxy:LineSeries ItemsSource="{Binding Chart.SoilHumLvl}" Title="Soil Hum."/>
+                            <oxy:LineSeries ItemsSource="{Binding Chart.LightStatus}" Title="Light"/>
                         </oxy:Plot.Series>
                     </oxy:Plot>
                 </Grid> 
@@ -84,22 +89,51 @@
                                 <ColumnDefinition Width="110"/>
                             </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="0" Grid.Column="0"  Content="User:"/>
+                            <Label Grid.Row="0" Grid.Column="0"  Content="User:" HorizontalAlignment="Right"/>
                             <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Path=Mqtt.User, Mode=TwoWay}"/>
-                            <Label Grid.Row="1" Grid.Column="0"  Content="Server:"/>
+                            <Label Grid.Row="1" Grid.Column="0"  Content="Server:" HorizontalAlignment="Right"/>
                             <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Path=Mqtt.Server, Mode=TwoWay}"/>
-                            <Label Grid.Row="2" Grid.Column="0"  Content="Pass:"/>
+                            <Label Grid.Row="2" Grid.Column="0"  Content="Pass:" HorizontalAlignment="Right"/>
                             <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding Path=Mqtt.Pass, Mode=TwoWay}"/>
-                            <Label Grid.Row="0" Grid.Column="2"  Content="Topic:"/>
+                            <Label Grid.Row="0" Grid.Column="2"  Content="Topic:" HorizontalAlignment="Right"/>
                             <TextBox Grid.Row="0" Grid.Column="3" Margin="5" Text="{Binding Path=Mqtt.TopicToSend, Mode=TwoWay}"/>
-                            <Label Grid.Row="1" Grid.Column="2"  Content="Port:"/>
+                            <Label Grid.Row="1" Grid.Column="2"  Content="Port:" HorizontalAlignment="Right"/>
                             <TextBox Grid.Row="1" Grid.Column="3" Margin="5" Text="{Binding Path=Mqtt.Port, Mode=TwoWay}"/>
-                            <Label Grid.Row="2" Grid.Column="2"  Content="Port SSL:"/>
+                            <Label Grid.Row="2" Grid.Column="2"  Content="Port SSL:" HorizontalAlignment="Right"/>
                             <TextBox Grid.Row="2" Grid.Column="3" Margin="5"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Greenhouse settings" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5">
-                        
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition Width="110"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0"  Content="Min. Temp.:" HorizontalAlignment="Right"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Path, Mode=TwoWay}"/>
+                            <Label Grid.Row="1" Grid.Column="0"  Content="Max. Temp.:" HorizontalAlignment="Right"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Path, Mode=TwoWay}"/>
+                            <Label Grid.Row="2" Grid.Column="0"  Content="Min. Light.:" HorizontalAlignment="Right"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding Path, Mode=TwoWay}"/>
+                            <Label Grid.Row="0" Grid.Column="2"  Content="Min. H. Soil.:" HorizontalAlignment="Right"/>
+                            <TextBox Grid.Row="0" Grid.Column="3" Margin="5" Text="{Binding Path, Mode=TwoWay}"/>
+                            <Label Grid.Row="1" Grid.Column="2"  Content="Min. Water:" HorizontalAlignment="Right"/>
+                            <TextBox Grid.Row="1" Grid.Column="3" Margin="5" Text="{Binding Path, Mode=TwoWay}"/>
+                            <Label Grid.Row="0" Grid.Column="4"  Content="Start:" HorizontalAlignment="Right"/>
+                            <TextBox Grid.Row="0" Grid.Column="5" Margin="5" Text="{Binding Path, Mode=TwoWay}"/>
+                            <Label Grid.Row="1" Grid.Column="4"  Content="Stop:" HorizontalAlignment="Right"/>
+                            <TextBox Grid.Row="1" Grid.Column="5" Margin="5" Text="{Binding Path, Mode=TwoWay}"/>
+                        </Grid>
                     </GroupBox>
                     <GroupBox Header="Control" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5">
                         <Grid>
