@@ -25,7 +25,9 @@ namespace PC_App.ViewModels
             GHSettings = new Settings();
             DefSettings = new Defaults();
 
-            DefSettings.SaveXML(DefSettings);
+            DefSettings = DefSettings.OpenXML();
+            Mqtt = DefSettings.DefSettingsMQTT;
+            GHSettings = DefSettings.DefGHSettings;
 
             SendGHLightChange = new Command(lightChange);
             SendGHPump = new Command(pump);
@@ -103,6 +105,7 @@ namespace PC_App.ViewModels
         {
             Mqtt.SendSettings(GHSettings);
         }
+
         #endregion
 
         #region MVVM

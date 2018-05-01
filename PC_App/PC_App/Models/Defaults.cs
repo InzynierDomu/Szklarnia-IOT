@@ -15,8 +15,7 @@ namespace PC_App.Models
     {
         public Defaults()
         {
-            DefSettingsMQTT = new MQTTConnect();
-            DefGHSettings = new Settings();
+
         }
 
         private MQTTConnect defSettingsMQTT;
@@ -56,6 +55,19 @@ namespace PC_App.Models
             TextWriter WriteFileStream = new StreamWriter(@path);
             SerializerObj.Serialize(WriteFileStream, settings);
             WriteFileStream.Close();
+        }
+
+        public Defaults OpenXML()
+        {
+            Defaults openSettings = new Defaults();
+            XmlSerializer DeserializerObj = new XmlSerializer(typeof(Defaults));
+            string path = System.IO.Directory.GetCurrentDirectory();
+            path += "\\Config\\Defaults.xml";
+            FileStream fs = new FileStream(path, FileMode.Open);
+            XmlReader reader = XmlReader.Create(fs);
+            openSettings = (Defaults)DeserializerObj.Deserialize(reader);
+            fs.Close();
+            return openSettings;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
