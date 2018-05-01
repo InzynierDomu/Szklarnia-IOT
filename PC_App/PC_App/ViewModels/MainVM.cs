@@ -23,6 +23,9 @@ namespace PC_App.ViewModels
             Database = new DBconnect();
             Chart = new Plot(Database);
             GHSettings = new Settings();
+            DefSettings = new Defaults();
+
+            DefSettings.SaveXML(DefSettings);
 
             SendGHLightChange = new Command(lightChange);
             SendGHPump = new Command(pump);
@@ -59,6 +62,13 @@ namespace PC_App.ViewModels
         {
             get { return _ghsettings; }
             set { _ghsettings = value; OnPropertyChanged("GHSettings");}
+        }
+
+        private Defaults _defSettings;
+        public Defaults DefSettings
+        {
+            get { return _defSettings; }
+            set { _defSettings = value; OnPropertyChanged("DefSettings"); }
         }
 
         #endregion

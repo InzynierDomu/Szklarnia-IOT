@@ -118,11 +118,19 @@ namespace PC_App.Models
         public void SendSettings(Settings settings)
         {
             string topic = TopicToSend + "/settings";
-           //this.client = new MqttClient(server, port, false, null, null, MqttSslProtocols.None);
-           // byte code = this.client.Connect(Guid.NewGuid().ToString(), user, pass);
-            byte[] msg = new byte[64];
+            this.client = new MqttClient(server, port, false, null, null, MqttSslProtocols.None);
+            byte code = this.client.Connect(Guid.NewGuid().ToString(), user, pass);
+            byte[] msg = new byte[7];
 
             msg[0] = Convert.ToByte(settings.MinTemp);
+            msg[1] = Convert.ToByte(settings.MaxTemp);
+            msg[2] = Convert.ToByte(settings.MinLight);
+            msg[3] = Convert.ToByte(settings.MinHumSoil);
+            msg[4] = Convert.ToByte(settings.MinWaterLvl);
+            msg[5] = Convert.ToByte(settings.Start);
+            msg[6] = Convert.ToByte(settings.Stop);
+
+            this.client.Publish(topic, msg);
         }
 
         private void MsgSend(char toSend, string topic)

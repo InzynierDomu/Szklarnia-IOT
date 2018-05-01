@@ -131,6 +131,7 @@
     <Compile Include="Data\GHDataBase.cs" />
     <Compile Include="Data\GreenHouseDB.cs" />
     <Compile Include="Models\DBconnect.cs" />
+    <Compile Include="Models\Defaults.cs" />
     <Compile Include="Models\MQTTConnect.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
@@ -204,6 +205,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="docs\MySqlCommand.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Config\Defaults.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
