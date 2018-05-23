@@ -12,7 +12,6 @@ namespace PC_App.Models
         {
             GHDataBase DBobject = new GHDataBase();
             
-
             Database = DBobject.GreenHouseDBs.ToList<GreenHouseDB>();
             DatabaseConverted = DatabaseConvert(Database);
         }

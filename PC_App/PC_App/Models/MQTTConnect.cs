@@ -120,17 +120,36 @@ namespace PC_App.Models
             string topic = TopicToSend + "/settings";
             this.client = new MqttClient(server, port, false, null, null, MqttSslProtocols.None);
             byte code = this.client.Connect(Guid.NewGuid().ToString(), user, pass);
-            byte[] msg = new byte[7];
 
-            msg[0] = Convert.ToByte(settings.MinTemp);
-            msg[1] = Convert.ToByte(settings.MaxTemp);
-            msg[2] = Convert.ToByte(settings.MinLight);
-            msg[3] = Convert.ToByte(settings.MinHumSoil);
-            msg[4] = Convert.ToByte(settings.MinWaterLvl);
-            msg[5] = Convert.ToByte(settings.Start);
-            msg[6] = Convert.ToByte(settings.Stop);
+            byte[] msg = new byte[0];
 
+            msg = AddToArray(msg, settings.MinTemp);
+            msg = AddToArray(msg, settings.MaxTemp);
+            msg = AddToArray(msg, settings.MinLight);
+            msg = AddToArray(msg, settings.MinHumSoil);
+            msg = AddToArray(msg, settings.MinWaterLvl);
+            msg = AddToArray(msg, settings.Start);
+            msg = AddToArray(msg, settings.Stop);
+            
             this.client.Publish(topic, msg);
+        }
+
+        private byte[] AddToArray(byte[] array, int value)
+        {
+            int arrayLenght = array.Length;
+            string convertedValue = Convert.ToString(value);
+            int valueLenght = convertedValue.Length;
+            Array.Resize(ref array, arrayLenght + valueLenght + 1);
+            
+
+            for (int i= 0; i<valueLenght; i++)
+            {
+                array[i + arrayLenght] = Convert.ToByte(convertedValue[i]);
+            }
+
+            array[array.Length - 1] = Convert.ToByte(',');
+
+            return array;
         }
 
         private void MsgSend(char toSend, string topic)

@@ -14,8 +14,8 @@ namespace PC_App.Models
 
         }
 
-        private double minTemp;
-        public double MinTemp
+        private int minTemp;
+        public int MinTemp
         {
             get { return minTemp; }
             set
@@ -28,8 +28,8 @@ namespace PC_App.Models
             }
         }
 
-        private double maxTemp;
-        public double MaxTemp
+        private int maxTemp;
+        public int MaxTemp
         {
             get { return maxTemp; }
             set
