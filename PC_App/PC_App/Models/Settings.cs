@@ -14,8 +14,8 @@ namespace PC_App.Models
 
         }
 
-        private int minTemp;
-        public int MinTemp
+        private double minTemp;
+        public double MinTemp
         {
             get { return minTemp; }
             set
@@ -28,8 +28,8 @@ namespace PC_App.Models
             }
         }
 
-        private int maxTemp;
-        public int MaxTemp
+        private double maxTemp;
+        public double MaxTemp
         {
             get { return maxTemp; }
             set
@@ -42,8 +42,8 @@ namespace PC_App.Models
             }
         }
 
-        private int minLight;
-        public int MinLight
+        private SByte minLight;
+        public SByte MinLight
         {
             get { return minLight; }
             set
@@ -56,8 +56,8 @@ namespace PC_App.Models
             }
         }
 
-        private int minHumSoil;
-        public int MinHumSoil
+        private SByte minHumSoil;
+        public SByte MinHumSoil
         {
             get { return minHumSoil; }
             set
@@ -70,8 +70,8 @@ namespace PC_App.Models
             }
         }
 
-        private int minWaterLvl;
-        public int MinWaterLvl
+        private SByte minWaterLvl;
+        public SByte MinWaterLvl
         {
             get { return minWaterLvl; }
             set
@@ -84,8 +84,8 @@ namespace PC_App.Models
             }
         }
 
-        private int start;
-        public int Start
+        private DateTime start;
+        public DateTime Start
         {
             get { return start; }
             set
@@ -98,8 +98,8 @@ namespace PC_App.Models
             }
         }
 
-        private int stop;
-        public int Stop
+        private DateTime stop;
+        public DateTime Stop
         {
             get { return stop; }
             set

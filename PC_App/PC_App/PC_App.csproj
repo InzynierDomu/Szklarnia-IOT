@@ -133,6 +133,7 @@
     <Compile Include="Models\DBconnect.cs" />
     <Compile Include="Models\Defaults.cs" />
     <Compile Include="Models\MQTTConnect.cs" />
+    <Compile Include="Models\MQTTMsg.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
     <Compile Include="ViewModels\Plot.cs" />

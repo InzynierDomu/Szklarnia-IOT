@@ -123,18 +123,18 @@ namespace PC_App.Models
 
             byte[] msg = new byte[0];
 
-            msg = AddToArray(msg, settings.MinTemp);
-            msg = AddToArray(msg, settings.MaxTemp);
-            msg = AddToArray(msg, settings.MinLight);
-            msg = AddToArray(msg, settings.MinHumSoil);
-            msg = AddToArray(msg, settings.MinWaterLvl);
-            msg = AddToArray(msg, settings.Start);
-            msg = AddToArray(msg, settings.Stop);
+            msg = AddToArray<double>(msg, settings.MinTemp);
+            msg = AddToArray<double>(msg, settings.MaxTemp);
+            msg = AddToArray<sbyte>(msg, settings.MinLight);
+            msg = AddToArray<sbyte>(msg, settings.MinHumSoil);
+            msg = AddToArray<sbyte>(msg, settings.MinWaterLvl);
+            msg = AddToArray<DateTime>(msg, settings.Start);
+            msg = AddToArray<DateTime>(msg, settings.Stop);
             
             this.client.Publish(topic, msg);
         }
 
-        private byte[] AddToArray(byte[] array, int value)
+        private byte[] AddToArray<T>(byte[] array, T value)
         {
             int arrayLenght = array.Length;
             string convertedValue = Convert.ToString(value);
